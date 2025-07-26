@@ -5,7 +5,10 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Sripalasetti Sri Anjaneyulu - Full Stack Developer",
   description: "Building the web of tomorrow, one stack at a time.",
-    generator: 'v0.dev'
+  generator: "v0.dev",
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
