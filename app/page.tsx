@@ -1014,115 +1014,130 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="relative z-10 py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              Get In Touch
-            </h2>
-            <p className="text-xl text-gray-300">Let's build something amazing together</p>
-          </motion.div>
+<section id="contact" className="relative z-10 py-20 px-4">
+  <div className="max-w-4xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+        Get In Touch
+      </h2>
+      <p className="text-xl text-gray-300">Let's build something amazing together</p>
+    </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+    <div className="grid md:grid-cols-2 gap-12">
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <Card className="backdrop-blur-md bg-white/5 border-white/10">
+          <CardContent className="p-8">
+            <form
+              action="https://getform.io/f/brondlka"
+              method="POST"
+              className="space-y-6"
             >
-              <Card className="backdrop-blur-md bg-white/5 border-white/10">
-                <CardContent className="p-8">
-                  <form className="space-y-6">
-                    <div>
-                      <label className="text-white mb-1 block">
-                        Your Name <span className="text-red-500">*</span>
-                      </label>
-                      <Input
-                        placeholder="Your Name"
-                        className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="text-white mb-1 block">
-                        Mail ID <span className="text-red-500">*</span>
-                      </label>
-                      <Input
-                        placeholder="Mail ID"
-                        className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-white mb-1 block">
-                        Message <span className="text-red-500">*</span>
-                      </label>
-                      <Input
-                        placeholder="Message"
-                        className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 focus:border-cyan-400"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white border-0"
-                    >
-                      <Send className="mr-2 h-4 w-4" />
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
-              <div className="text-center">
-                <h3 className="text-2xl font-bold mb-6 text-white">Connect With Me</h3>
-                <div className="flex justify-center gap-6">
-                  {[
-                    { icon: Mail, color: "from-red-500 to-pink-500", href: "mailto:srianjaneyulu0731@gmail.com" },
-                    { icon: Linkedin, color: "from-blue-600 to-blue-700", href: "https://www.linkedin.com/in/srianjaneyulu0731/" },
-                    { icon: Github, color: "from-gray-700 to-gray-800", href: "https://github.com/anji0731" },
-                    { icon: Twitter, color: "from-blue-400 to-blue-500", href: "https://x.com/_OG_18?s=09" },
-                    { icon: MessageSquare, color: "from-green-500 to-teal-500", href: "https://wa.me/919515416101" },
-                  ].map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      whileHover={{ scale: 1.1, y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`w-14 h-14 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300`}
-                    >
-                      <social.icon className="h-6 w-6 text-white" />
-                    </motion.a>
-                  ))}
-                </div>
+              <div>
+                <label className="text-white mb-1 block">
+                  Your Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
+                />
               </div>
 
-              <div className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10">
-                <div className="text-center">
-                  <Zap className="h-12 w-12 mx-auto mb-4 text-cyan-400" />
-                  <h4 className="text-xl font-bold text-white mb-2">Ready to collaborate?</h4>
-                  <p className="text-gray-300">
-                    I'm always excited to work on new projects and bring innovative ideas to life. Let's discuss how we
-                    can create something extraordinary together.
-                  </p>
-                </div>
+              <div>
+                <label className="text-white mb-1 block">
+                  Mail ID <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Mail ID"
+                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
+                />
               </div>
-            </motion.div>
+
+              <div>
+                <label className="text-white mb-1 block">
+                  Message <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="message"
+                  rows={4}
+                  required
+                  placeholder="Message"
+                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
+                ></textarea>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white border-0"
+              >
+                <Send className="mr-2 h-4 w-4" />
+                Send Message
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="space-y-8"
+      >
+        <div className="text-center">
+          <h3 className="text-2xl font-bold mb-6 text-white">Connect With Me</h3>
+          <div className="flex justify-center gap-6">
+            {[
+              { icon: Mail, color: "from-red-500 to-pink-500", href: "mailto:srianjaneyulu0731@gmail.com" },
+              { icon: Linkedin, color: "from-blue-600 to-blue-700", href: "https://www.linkedin.com/in/srianjaneyulu0731/" },
+              { icon: Github, color: "from-gray-700 to-gray-800", href: "https://github.com/anji0731" },
+              { icon: Twitter, color: "from-blue-400 to-blue-500", href: "https://x.com/_OG_18?s=09" },
+              { icon: MessageSquare, color: "from-green-500 to-teal-500", href: "https://wa.me/919515416101" },
+            ].map((social, index) => (
+              <motion.a
+                key={index}
+                href={social.href}
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                className={`w-14 h-14 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300`}
+              >
+                <social.icon className="h-6 w-6 text-white" />
+              </motion.a>
+            ))}
           </div>
         </div>
-      </section>
+
+        <div className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10">
+          <div className="text-center">
+            <Zap className="h-12 w-12 mx-auto mb-4 text-cyan-400" />
+            <h4 className="text-xl font-bold text-white mb-2">Ready to collaborate?</h4>
+            <p className="text-gray-300">
+              I'm always excited to work on new projects and bring innovative ideas to life.
+              Let's discuss how we can create something extraordinary together.
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>  
 
       {/* Footer */}
       <footer className="relative z-10 py-16 px-4 border-t border-white/10">
