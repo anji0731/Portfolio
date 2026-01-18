@@ -29,6 +29,11 @@ import {
   GraduationCap,
   Laptop,
   MessageSquare,
+  CheckCircle,
+  Eye,
+  Calendar,
+  Sparkles,
+  Shield,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -429,8 +434,8 @@ export default function Portfolio() {
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       image:
         "/images/projects/ecommerce-platform.jpg",
-      githubUrl: "https://github.com/username/ecommerce-platform",
-      liveUrl: null,
+      githubUrl: "https://github.com/anji0731/E-commerce-shophub",
+      liveUrl: "https://e-commerce-shophub-seven.vercel.app/",
     },
     {
       title: "Task Management App",
@@ -837,7 +842,7 @@ export default function Portfolio() {
               transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
               className="flex gap-6 w-max"
             >
-              {Array(2)
+              {Array(4)
                 .fill([
                   { name: "ServiceNow", icon: "🔧", color: "from-purple-500 to-purple-600" },
                   { name: "Git & GitHub", icon: "🐙", color: "from-gray-700 to-gray-800" },
@@ -875,8 +880,14 @@ export default function Portfolio() {
         </motion.div>
       </section>
       {/* Certifications Section */}
-      <section id="certifications" className="relative z-10 py-20 px-4">
-        <div className="max-w-6xl mx-auto">
+      <section id="certifications" className="relative z-10 py-20 px-4 overflow-hidden">
+        {/* Background decorations */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -884,50 +895,202 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
-              Certifications & Achievements
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-teal-500/20 border border-purple-400/30 mb-6"
+            >
+              <Sparkles className="h-4 w-4 text-purple-400" />
+              <span className="text-sm text-purple-300 font-medium">Professional Credentials</span>
+              <Sparkles className="h-4 w-4 text-teal-400" />
+            </motion.div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-teal-400 bg-clip-text text-transparent">
+                Certifications & Achievements
+              </span>
             </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Industry-recognized certifications that validate my expertise and commitment to excellence
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
             {certifications.map((cert, index) => (
               <motion.div
                 key={cert.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                initial={{ opacity: 0, y: 50, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="group"
+                className="group perspective-1000"
               >
-                <Card className="backdrop-blur-md bg-white/5 border-2 border-white/20 hover:border-purple-400/60 transition-all duration-300 overflow-hidden h-full">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={cert.image || "/placeholder.svg"}
-                      alt={cert.title}
-                      className="w-full h-80 object-contain group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute top-4 right-4">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-teal-500 flex items-center justify-center">
-                        <Award className="h-5 w-5 text-white" />
+                {/* Card with glowing border effect */}
+                <div className="relative">
+                  {/* Animated glow border */}
+                  <motion.div
+                    className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-pink-500 to-teal-500 rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500"
+                    animate={{
+                      background: [
+                        "linear-gradient(90deg, rgb(147, 51, 234), rgb(236, 72, 153), rgb(20, 184, 166))",
+                        "linear-gradient(180deg, rgb(147, 51, 234), rgb(236, 72, 153), rgb(20, 184, 166))",
+                        "linear-gradient(270deg, rgb(147, 51, 234), rgb(236, 72, 153), rgb(20, 184, 166))",
+                        "linear-gradient(360deg, rgb(147, 51, 234), rgb(236, 72, 153), rgb(20, 184, 166))",
+                      ],
+                    }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  />
+
+                  <Card className="relative backdrop-blur-xl bg-gradient-to-br from-gray-900/90 via-gray-800/90 to-gray-900/90 border-2 border-white/10 hover:border-purple-400/50 transition-all duration-500 overflow-hidden rounded-2xl">
+                    {/* Top ribbon/badge */}
+                    <div className="absolute top-4 left-4 z-20">
+                      <motion.div
+                        initial={{ x: -50, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
+                        viewport={{ once: true }}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-600/90 to-teal-600/90 backdrop-blur-sm shadow-lg shadow-purple-500/25"
+                      >
+                        <Shield className="h-3.5 w-3.5 text-white" />
+                        <span className="text-xs font-semibold text-white">{cert.platform}</span>
+                        <CheckCircle className="h-3.5 w-3.5 text-green-300" />
+                      </motion.div>
+                    </div>
+
+                    {/* Certificate Image Container */}
+                    <div className="relative overflow-hidden">
+                      <div className="aspect-[16/10] relative">
+                        <img
+                          src={cert.image || "/placeholder.svg"}
+                          alt={cert.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent opacity-80" />
+
+                        {/* View certificate button - appears on hover */}
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          whileHover={{ opacity: 1 }}
+                          className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                        >
+                          <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            onClick={() => window.open(cert.image, '_blank')}
+                            className="flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-600 to-teal-600 text-white font-medium shadow-xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-300"
+                          >
+                            <Eye className="h-5 w-5" />
+                            View Certificate
+                          </motion.button>
+                        </motion.div>
+
+                        {/* Award badge */}
+                        <div className="absolute top-4 right-4">
+                          <motion.div
+                            initial={{ scale: 0, rotate: -180 }}
+                            whileInView={{ scale: 1, rotate: 0 }}
+                            transition={{ duration: 0.6, delay: index * 0.15 + 0.4, type: "spring" }}
+                            viewport={{ once: true }}
+                            className="w-14 h-14 rounded-full bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/40 ring-4 ring-amber-400/20"
+                          >
+                            <Award className="h-7 w-7 text-white drop-shadow-md" />
+                          </motion.div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <CardContent className="p-8">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors duration-300">
-                      {cert.title}
-                    </h3>
-                    <div className="space-y-2 mb-4">
-                      <p className="text-purple-400 font-medium">{cert.platform}</p>
-                      {cert.date && <p className="text-gray-400 text-sm">{cert.date}</p>}
-                    </div>
-                    <p className="text-gray-300 leading-relaxed">{cert.detail}</p>
-                  </CardContent>
-                </Card>
+
+                    {/* Certificate Info */}
+                    <CardContent className="p-6 relative">
+                      {/* Decorative line */}
+                      <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
+
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.15 + 0.5 }}
+                        viewport={{ once: true }}
+                      >
+                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-teal-400 group-hover:bg-clip-text transition-all duration-300">
+                          {cert.title}
+                        </h3>
+
+                        {/* Date badge */}
+                        {cert.date && (
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/5 border border-white/10">
+                              <Calendar className="h-3.5 w-3.5 text-cyan-400" />
+                              <span className="text-sm text-gray-300">{cert.date}</span>
+                            </div>
+                          </div>
+                        )}
+
+                        <p className="text-gray-400 leading-relaxed text-sm mb-4">
+                          {cert.detail}
+                        </p>
+
+                        {/* Verified badge */}
+                        <div className="flex items-center gap-2 pt-3 border-t border-white/5">
+                          <div className="flex items-center gap-1.5 text-green-400">
+                            <CheckCircle className="h-4 w-4" />
+                            <span className="text-xs font-medium">Verified Credential</span>
+                          </div>
+                          <div className="flex-1" />
+                          <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <button
+                              onClick={() => window.open(cert.image, '_blank')}
+                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-500/20 to-teal-500/20 border border-purple-400/30 text-purple-300 text-xs font-medium hover:from-purple-500/30 hover:to-teal-500/30 transition-all duration-300"
+                            >
+                              <Eye className="h-3.5 w-3.5" />
+                              View
+                            </button>
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
+          >
+            {[
+              { label: "Certifications", value: "4+", icon: Award },
+              { label: "Platforms", value: "3+", icon: Shield },
+              { label: "Verified", value: "100%", icon: CheckCircle },
+              { label: "Active", value: "All", icon: Sparkles },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="group"
+              >
+                <div className="p-4 rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-purple-400/50 transition-all duration-300 text-center">
+                  <stat.icon className="h-6 w-6 mx-auto mb-2 text-purple-400 group-hover:text-teal-400 transition-colors duration-300" />
+                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-teal-400 bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -1014,130 +1177,130 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-<section id="contact" className="relative z-10 py-20 px-4">
-  <div className="max-w-4xl mx-auto">
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="text-center mb-16"
-    >
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-        Get In Touch
-      </h2>
-      <p className="text-xl text-gray-300">Let's build something amazing together</p>
-    </motion.div>
+      <section id="contact" className="relative z-10 py-20 px-4">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              Get In Touch
+            </h2>
+            <p className="text-xl text-gray-300">Let's build something amazing together</p>
+          </motion.div>
 
-    <div className="grid md:grid-cols-2 gap-12">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <Card className="backdrop-blur-md bg-white/5 border-white/10">
-          <CardContent className="p-8">
-            <form
-              action="https://getform.io/f/brondlka"
-              method="POST"
-              className="space-y-6"
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
             >
-              <div>
-                <label className="text-white mb-1 block">
-                  Your Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your Name"
-                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
-                />
+              <Card className="backdrop-blur-md bg-white/5 border-white/10">
+                <CardContent className="p-8">
+                  <form
+                    action="https://getform.io/f/brondlka"
+                    method="POST"
+                    className="space-y-6"
+                  >
+                    <div>
+                      <label className="text-white mb-1 block">
+                        Your Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        required
+                        placeholder="Your Name"
+                        className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-white mb-1 block">
+                        Mail ID <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="Mail ID"
+                        className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-white mb-1 block">
+                        Message <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={4}
+                        required
+                        placeholder="Message"
+                        className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
+                      ></textarea>
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white border-0"
+                    >
+                      <Send className="mr-2 h-4 w-4" />
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div className="text-center">
+                <h3 className="text-2xl font-bold mb-6 text-white">Connect With Me</h3>
+                <div className="flex justify-center gap-6">
+                  {[
+                    { icon: Mail, color: "from-red-500 to-pink-500", href: "mailto:srianjaneyulu0731@gmail.com" },
+                    { icon: Linkedin, color: "from-blue-600 to-blue-700", href: "https://www.linkedin.com/in/srianjaneyulu0731/" },
+                    { icon: Github, color: "from-gray-700 to-gray-800", href: "https://github.com/anji0731" },
+                    { icon: Twitter, color: "from-blue-400 to-blue-500", href: "https://x.com/_OG_18?s=09" },
+                    { icon: MessageSquare, color: "from-green-500 to-teal-500", href: "https://wa.me/919515416101" },
+                  ].map((social, index) => (
+                    <motion.a
+                      key={index}
+                      href={social.href}
+                      whileHover={{ scale: 1.1, y: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`w-14 h-14 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300`}
+                    >
+                      <social.icon className="h-6 w-6 text-white" />
+                    </motion.a>
+                  ))}
+                </div>
               </div>
 
-              <div>
-                <label className="text-white mb-1 block">
-                  Mail ID <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Mail ID"
-                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
-                />
+              <div className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10">
+                <div className="text-center">
+                  <Zap className="h-12 w-12 mx-auto mb-4 text-cyan-400" />
+                  <h4 className="text-xl font-bold text-white mb-2">Ready to collaborate?</h4>
+                  <p className="text-gray-300">
+                    I'm always excited to work on new projects and bring innovative ideas to life.
+                    Let's discuss how we can create something extraordinary together.
+                  </p>
+                </div>
               </div>
-
-              <div>
-                <label className="text-white mb-1 block">
-                  Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  rows={4}
-                  required
-                  placeholder="Message"
-                  className="w-full bg-white/5 border border-white/20 text-white placeholder:text-gray-400 px-4 py-2 rounded focus:border-cyan-400"
-                ></textarea>
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white border-0"
-              >
-                <Send className="mr-2 h-4 w-4" />
-                Send Message
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="space-y-8"
-      >
-        <div className="text-center">
-          <h3 className="text-2xl font-bold mb-6 text-white">Connect With Me</h3>
-          <div className="flex justify-center gap-6">
-            {[
-              { icon: Mail, color: "from-red-500 to-pink-500", href: "mailto:srianjaneyulu0731@gmail.com" },
-              { icon: Linkedin, color: "from-blue-600 to-blue-700", href: "https://www.linkedin.com/in/srianjaneyulu0731/" },
-              { icon: Github, color: "from-gray-700 to-gray-800", href: "https://github.com/anji0731" },
-              { icon: Twitter, color: "from-blue-400 to-blue-500", href: "https://x.com/_OG_18?s=09" },
-              { icon: MessageSquare, color: "from-green-500 to-teal-500", href: "https://wa.me/919515416101" },
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                whileHover={{ scale: 1.1, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className={`w-14 h-14 rounded-full bg-gradient-to-br ${social.color} flex items-center justify-center hover:shadow-lg hover:shadow-cyan-400/25 transition-all duration-300`}
-              >
-                <social.icon className="h-6 w-6 text-white" />
-              </motion.a>
-            ))}
+            </motion.div>
           </div>
         </div>
-
-        <div className="backdrop-blur-md bg-white/5 rounded-2xl p-8 border border-white/10">
-          <div className="text-center">
-            <Zap className="h-12 w-12 mx-auto mb-4 text-cyan-400" />
-            <h4 className="text-xl font-bold text-white mb-2">Ready to collaborate?</h4>
-            <p className="text-gray-300">
-              I'm always excited to work on new projects and bring innovative ideas to life.
-              Let's discuss how we can create something extraordinary together.
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  </div>
-</section>  
+      </section>
 
       {/* Footer */}
       <footer className="relative z-10 py-16 px-4 border-t border-white/10">
